@@ -1,0 +1,5 @@
+{
+    "BS_TOLL_PATH":"http://localhost:19180/anpr-event",
+    "BS_HB_PATH":"http://localhost:19180/anpr-hb",
+    "PORT":19188
+}
