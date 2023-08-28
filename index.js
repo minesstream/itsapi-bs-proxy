@@ -16,6 +16,9 @@ async function proxyPost(url,data) {
     }
 }
 
+app.use(bodyParser.json({limit: '50mb',type:"*/json"}))
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.post('/NotificationInfo/TollgateInfo', (req, res) => {
     proxyPost(cfg.BS_TOLL_PATH,req.body)
     res.json(its_result)
@@ -25,9 +28,6 @@ app.post('/NotificationInfo/KeepAlive', (req, res) => {
     proxyPost(cfg.BS_HB_PATH,req.body)
     res.json(its_result)
 })
-
-app.use(bodyParser.json({limit: '50mb'}))
-app.use(bodyParser.urlencoded({ extended: true }))
 
 app.listen(cfg.PORT, () => {
   console.log('Start proxy server')
